@@ -18,7 +18,7 @@ for i in PM1["feeds"]:
     y1=i["field1"]
     # x1=[1,20,40,60,80,100]
     x1=PM1["feeds"].index(i)
-    plt.plot(x1,y1, 'r.-', linewidth=3)
+    plt.plot(x1,y1, 'r.-')
 
 
 
