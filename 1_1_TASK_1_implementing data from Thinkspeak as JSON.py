@@ -16,8 +16,9 @@ print ("PM1_Entries")
 plt.style.use('fivethirtyeight')
 for i in PM1["feeds"]:
     y1=i["field1"]
-    # x1=[1,20,40,60,80,100]
+    #x1=[1,20,40,60,80,100]
     x1=PM1["feeds"].index(i)
+    plt.ylim(1,5)
     plt.plot(x1,y1, 'r.-')
 
 
@@ -29,7 +30,7 @@ plt.title("PM1.0")
 plt.ylabel("ATM")
 plt.tight_layout()
 plt.grid(True)
-plt.savefig(plt.png)
+
 plt.show()
 
 
