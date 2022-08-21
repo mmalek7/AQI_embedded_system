@@ -2,6 +2,7 @@ import json
 import numpy as np
 import matplotlib
 from matplotlib import pyplot as plt
+from statistics import mean
 plt.gca().set_xscale('linear')
 #matplotlib.axes.Axes.set_xscale(1, 'linear')
 #Routine for reading all fields at once
@@ -18,18 +19,26 @@ channels_1 = PM1['channel']
 
 print ("PM1_Entries")
 plt.style.use('fivethirtyeight')
+x1 = []
+y1 = []
 for i in PM1["feeds"]:
-    y1=i["field1"]
+    y1= y1 + [float(i["field1"])]
     #x1=[1,20,40,60,80,100]
-    x1=PM1["feeds"].index(i)
-    #plt.xlim(1, 100)
-    #plt.ylim(1,5)
-    #plt.xticks(range(min(x1), max(x1) + 1))
-    #plt.yticks(range(1, 5))
-    # plt.axis([0,100, 100,0])
-    plt.plot(x1,y1, 'r.-', linestyle='solid')
-    print(y1)
+    x1= x1 + [PM1["feeds"].index(i)]
 
+#plt.xlim(1, 100)
+print(x1)
+print(y1)
+Meanvalue_1=(mean(y1))
+print(Meanvalue_1)
+#plt.xticks(range(min(x1), max(x1) + 1))
+#plt.yticks([0,1,2],[0,1,2])
+# plt.axis([0,100, 100,0])
+plt.plot(x1,y1,color='red', marker='.', linestyle='solid',
+     linewidth=1, markersize=8)
+plt.axhline(Meanvalue_1,0,100, color='black', linewidth=1, linestyle='dashed')
+plt.ylim(2,6)
+plt.xlim(0,100)
 plt.title("PM1.0")
 plt.ylabel("ATM")
 plt.tight_layout()
