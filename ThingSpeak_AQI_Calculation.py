@@ -24,7 +24,6 @@ for i in PM2_5["feeds"]:
     AQI1=((((ih1-il1)/(chp1-clp1))*(cm1-clp1))+51)
     x2= x2 + [PM2_5["feeds"].index(i)]
 
-
 for i in PM10["feeds"]:
     y3= y3 + [float(i["field3"])]
     ih3 = 50
@@ -57,7 +56,7 @@ read = channelread.get_field_last(3)
 GetStr = read.split('"')
 Value = float(GetStr[len(GetStr)-2])
 #print(GetStr)
-print("Average humidity from cloud: %-3.1f %%" % np.array(AQI1)+)
+print("Average humidity from cloud: %-3.1f %%" % np.array(AQI1))
 
 print('------------------------------------------------------------------------------------------------')
 print(Value)
