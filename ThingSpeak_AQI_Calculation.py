@@ -23,52 +23,55 @@ for i in PM2_5["feeds"]:
     cm1 = np.array(y2)
     AQI1=((((ih1-il1)/(chp1-clp1))*(cm1-clp1))+51)
     x2= x2 + [PM2_5["feeds"].index(i)]
-    for i in PM10["feeds"]:
-        y3= y3 + [float(i["field3"])]
-        ih3 = 50
-        il3 = 0
-        chp3 = 54
-        clp3 = 0
-        cm3 = np.array(y3)
-        AQI2=((((ih3-il3)/(chp3-clp3))*(cm3-clp3))+51)
-        x3= x3 + [PM10["feeds"].index(i)]
+
+
+for i in PM10["feeds"]:
+    y3= y3 + [float(i["field3"])]
+    ih3 = 50
+    il3 = 0
+    chp3 = 54
+    clp3 = 0
+    cm3 = np.array(y3)
+    AQI2=((((ih3-il3)/(chp3-clp3))*(cm3-clp3))+51)
+    x3= x3 + [PM10["feeds"].index(i)]
 print ("PM2_5 Entries")
-print(x2)
+# print(x2)
 print(y2)
 print("AQI1 Values PM2.5")
 print(AQI1)
 print('======================================================================================================')
 print ("PM10 Entries")
-print(x3)
+# print(x3)
 print(y3)
 print("AQI2 Values PM10")
 print(AQI2)
 print('======================================================================================================')
 
-
-
-
-
-
-print('======================================================================================================')
-
-# if AQI1 > AQI2:
-#     print(AQI1)
-#     if not print(AQI2):
-#         print("right")
-
-print('======================================================================================================')
-
-
 channel.update({'field1': AQI1, 'field2': AQI2})
+print(channel)
 read_key = 'S83Z6FBVY67HHICY'  # PUT YOUR READ KEY HERE
 channelread = thingspeak.Channel(id=channel_id, api_key=read_key)
+
 read = channelread.get_field_last(3)
 #print("Read:", read)
 GetStr = read.split('"')
 Value = float(GetStr[len(GetStr)-2])
 #print(GetStr)
-# print("Average humidity from cloud: %-3.1f %%" % Value)
+print("Average humidity from cloud: %-3.1f %%" % np.array(AQI1)+)
+
+print('------------------------------------------------------------------------------------------------')
 print(Value)
-print('-------------------')
+
 # time.sleep(10)
+
+
+
+print('======================================================================================================')
+# for i in AQI1:
+#     MAX_AQI = max(np.array(AQI1), np.array(AQI2))
+#     print(MAX_AQI)
+# #     if not print(AQI2):
+# #         print("right")
+
+print('======================================================================================================')
+
