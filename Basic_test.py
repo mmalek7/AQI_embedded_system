@@ -8,6 +8,6 @@
 #     print("but not above 20.")
 
 i=1
-while i<6:
+while i<100:
     print(i)
     i+=1
