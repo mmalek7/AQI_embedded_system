@@ -9,12 +9,12 @@ x2 = []
 y2 = []
 for i in PM2_5["feeds"]:
     y2= y2 + [float(i["field2"])]
-    ih1 = 50
-    il1 = 0
-    chp1 = 12
-    clp1 = 0
-    cm1 = np.array(y2)
-    AQI1=((((ih1-il1)/(chp1-clp1))*(cm1-clp1))+51)
+    ih2 = 50
+    il2 = 0
+    chp2 = 12
+    clp2 = 0
+    cm2 = np.array(y2)
+    AQI1=((((ih2-il2)/(chp2-clp2))*(cm2-clp2))+51)
     x2= x2 + [PM2_5["feeds"].index(i)]
 
 print(x2)
@@ -44,6 +44,7 @@ print ("AQI_Values for PM10.0 measurements")
 print(AQI2)
 
 print('======================================================================================================')
+# Calculating Active AQI as AQI_max from both the values AQI1 and AQI2
 print("AQI_MAX_Entries")
 AQI_max=[]
 for AQI_max in AQI1:
