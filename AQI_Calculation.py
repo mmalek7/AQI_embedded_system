@@ -40,11 +40,13 @@ print(y3)
 print(AQI2)
 
 print('======================================================================================================')
+print("AQI_MAX_Entries")
+AQI_max=[]
+for AQI_max in AQI1:
+    if AQI_max > AQI2.all():
+        print(AQI_max)
+    else: print(AQI2)
 
-if AQI1 > AQI2:
-    print(AQI1)
-else:
-    print(AQI2)
 
 
 print('======================================================================================================')
