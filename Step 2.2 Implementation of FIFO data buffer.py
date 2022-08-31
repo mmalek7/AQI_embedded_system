@@ -56,6 +56,7 @@ while True:
 
     meanvalueTemp = (mean(tempInCelsius))
     print("Mean value Temperature:")
+    print("Mean value Humidity:")
     print(meanvalueTemp)
 
     fig, (ax1, ax2) = plt.subplots(2, 1)
