@@ -80,6 +80,7 @@ print("PM10 Sensor readings:")
 print(x3)
 print(y3)
 Meanvalue_PM10 = (mean(y3))
+print("Mean value of PM10.0:")
 print(Meanvalue_PM10)
 plt.style.use('classic')
 plt.plot(x3, y3, color='blue', marker='.', linestyle='solid',
@@ -128,7 +129,7 @@ y6 = []
 tempInCelsius = []
 for i in temperature["feeds"]:
     y6 = y6 + [float(i["field6"])]
-    tempInCelsius = [round((y6 - 32) / 1.8, 2) for y in y6]
+    tempInCelsius = [round((y - 32) / 1.8, 2) for y in y6]
     x6 = x6 + [temperature["feeds"].index(i)]
 print("Temperature Sensor readings:")
 print(x6)
@@ -163,6 +164,7 @@ print("Humidity Sensor readings:")
 print(x7)
 print(y7)
 MeanvalueHumidity = (mean(y7))
+print("Mean value of Humidity:")
 print(MeanvalueHumidity)
 plt.style.use("seaborn-paper")
 plt.plot(x7, y7, color='green', marker='.', linestyle='solid',
@@ -185,7 +187,7 @@ y8 = []
 for i in PM_2_5_CF1["feeds"]:
     y8 = y8 + [float(i["field8"])]
     x8 = x8 + [PM_2_5_CF1["feeds"].index(i)]
-print("PM_2.5 Sensor readings:")
+print("PM_2.5 CF=1 Sensor readings:")
 print(x8)
 print(y8)
 

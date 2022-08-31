@@ -28,14 +28,14 @@ temperatureJSON = '{"channel":{"id":628559,"name":"AirMonitor_e9bb","latitude":"
 temperature = json.loads(temperatureJSON)
 
 temperature = json.loads(temperatureJSON)
-xCoord = []
-yCoord = []
+x6 = []
+y6 = []
 tempInCelsius = []
 
 for i in temperature["feeds"]:
-    xCoord = xCoord + [temperature["feeds"].index(i)]
-    yCoord = yCoord + [float(i["field6"])]
-    tempInCelsius = [round((y - 32) / 1.8, 2) for y in yCoord]
+    x6 = x6 + [temperature["feeds"].index(i)]
+    y6 = y6 + [float(i["field6"])]
+    tempInCelsius = [round((y - 32) / 1.8, 2) for y in y6]
 
 while True:
     instance = dht11.DHT11(pin=4)
